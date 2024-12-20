@@ -8,10 +8,20 @@ import java.util.Date;
 
 public class JpaStarterMain {
     public static void main(String[] args) {
+
+        //updating a field
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Employee employee = entityManager.find(Employee.class, 1);
-        System.out.println(employee);
+        employee.setAge(40);
+        employee.setSsn("789");
+
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.persist(employee);
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
 
 
 
