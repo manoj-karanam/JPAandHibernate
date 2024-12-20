@@ -12,6 +12,8 @@ public class Employee {
     @GeneratedValue
     private int Id;
 
+    @OneToOne
+    private AccessCard card;
 
     @Column(name="employeename", length = 120)
     private String name;
@@ -44,6 +46,14 @@ public class Employee {
                 ", ssn='" + ssn + '\'' +
                 ", type=" + type +
                 '}';
+    }
+
+    public AccessCard getCard() {
+        return card;
+    }
+
+    public void setCard(AccessCard card) {
+        this.card = card;
     }
 
     public void setType(EmployeeType type) {
