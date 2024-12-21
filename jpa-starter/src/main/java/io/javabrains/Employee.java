@@ -12,7 +12,7 @@ public class Employee {
     @GeneratedValue
     private int Id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private AccessCard card;
 
     @Column(name="employeename", length = 120)

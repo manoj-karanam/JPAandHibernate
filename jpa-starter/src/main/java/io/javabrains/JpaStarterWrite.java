@@ -6,7 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.Date;
 
-public class JpaStarterMain {
+public class JpaStarterWrite {
     public static void main(String[] args) {
 
         AccessCard card1 = new AccessCard();
@@ -38,9 +38,10 @@ public class JpaStarterMain {
         employee2.setType(EmployeeType.FULL_TIME);
 
 
-
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Employee tempemployee = entityManager.find(Employee.class, 1);
 
         EntityTransaction transaction =  entityManager.getTransaction();
         transaction.begin();
