@@ -42,6 +42,20 @@ public class JpaStarterWrite {
         card1.setOwner(employee);
         card2.setOwner(employee2);
 
+        PayStub payStub1 = new PayStub();
+        payStub1.setPayPeriodStart(new Date());
+        payStub1.setPayPeriodEnd(new Date());
+        payStub1.setSalary(1000);
+
+        PayStub payStub2 = new PayStub();
+        payStub2.setPayPeriodStart(new Date());
+        payStub2.setPayPeriodEnd(new Date());
+        payStub2.setSalary(2000);
+
+
+        payStub1.setEmployee(employee);
+        payStub2.setEmployee(employee);
+
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -52,7 +66,8 @@ public class JpaStarterWrite {
         entityManager.persist(employee2);
         entityManager.persist(card1);
         entityManager.persist(card2);
-
+        entityManager.persist(payStub1);
+        entityManager.persist(payStub2);
         transaction.commit();
         entityManager.close();
         entityManagerFactory.close();
