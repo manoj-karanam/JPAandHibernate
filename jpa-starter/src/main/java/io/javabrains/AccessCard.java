@@ -1,9 +1,6 @@
 package io.javabrains;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,15 +16,10 @@ public class AccessCard {
 
     private String firmwareVersion;
 
-    @Override
-    public String toString() {
-        return "AccessCard{" +
-                "id=" + id +
-                ", issueDate=" + issueDate +
-                ", isActive=" + isActive +
-                ", firmwareVersion='" + firmwareVersion + '\'' +
-                '}';
-    }
+    @OneToOne(mappedBy = "card")
+    private Employee owner;
+
+
 
     public int getId() {
         return id;
@@ -59,5 +51,24 @@ public class AccessCard {
 
     public void setFirmwareVersion(String firmwareVersion) {
         this.firmwareVersion = firmwareVersion;
+    }
+
+    public Employee getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Employee owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return "AccessCard{" +
+                "id=" + id +
+                ", issueDate=" + issueDate +
+                ", isActive=" + isActive +
+                ", firmwareVersion='" + firmwareVersion + '\'' +
+                ", owner=" + owner +
+                '}';
     }
 }

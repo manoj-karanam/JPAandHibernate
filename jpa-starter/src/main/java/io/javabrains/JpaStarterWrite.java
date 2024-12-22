@@ -15,11 +15,13 @@ public class JpaStarterWrite {
         card1.setActive(true);
         card1.setFirmwareVersion("1.0.0");
 
+
         card2.setIssueDate(new Date());
         card2.setActive(false);
         card2.setFirmwareVersion("1.2.0");
 
         Employee employee = new Employee();
+
 //        employee.setId(1);
         employee.setName("Foo Bar");
         employee.setSsn("123");
@@ -37,11 +39,12 @@ public class JpaStarterWrite {
         employee2.setCard(card2);
         employee2.setType(EmployeeType.FULL_TIME);
 
+        card1.setOwner(employee);
+        card2.setOwner(employee2);
+
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        Employee tempemployee = entityManager.find(Employee.class, 1);
 
         EntityTransaction transaction =  entityManager.getTransaction();
         transaction.begin();
