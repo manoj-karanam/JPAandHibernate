@@ -13,7 +13,10 @@ public class JpaStarterRead {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
+        System.out.println("***************** before fetching employee");
         Employee employee = entityManager.find(Employee.class, 1);
+        System.out.println("***************** before accessing paystubs");
+
         System.out.println(employee.getPayStub());
 
 //        PayStub payStub = entityManager.find(PayStub.class, 5);
