@@ -61,14 +61,14 @@ public class AccessCard {
         this.owner = owner;
     }
 
-    @Override
-    public String toString() {
-        return "AccessCard{" +
-                "id=" + id +
-                ", issueDate=" + issueDate +
-                ", isActive=" + isActive +
-                ", firmwareVersion='" + firmwareVersion + '\'' +
-                ", owner=" + owner +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "AccessCard{" +
+//                "id=" + id +
+//                ", issueDate=" + issueDate +
+//                ", isActive=" + isActive +
+//                ", firmwareVersion='" + firmwareVersion + '\'' +
+//                ", owner=" + owner +
+//                '}';
+//    }
 }

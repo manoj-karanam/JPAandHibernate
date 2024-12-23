@@ -3,6 +3,7 @@ package io.javabrains;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.sql.SQLOutput;
 
 public class JpaStarterRead {
 
@@ -12,9 +13,11 @@ public class JpaStarterRead {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
-        AccessCard card = entityManager.find(AccessCard.class, 3);
+        Employee employee = entityManager.find(Employee.class, 1);
+        System.out.println(employee.getPayStub());
 
-        System.out.println(card);
+//        PayStub payStub = entityManager.find(PayStub.class, 5);
+//        System.out.println(payStub.getEmployee());
 
 
     }

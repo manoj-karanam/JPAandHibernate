@@ -3,6 +3,7 @@ package io.javabrains;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="EMPLOYEE_DATA")
@@ -32,20 +33,11 @@ public class Employee {
     @Transient
     private String debugString;
 
+    @OneToMany(mappedBy = "employee")
+    private List<PayStub> payStub;
+
     public EmployeeType getType() {
         return type;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "Id=" + Id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", dob=" + dob +
-                ", ssn='" + ssn + '\'' +
-                ", type=" + type +
-                '}';
     }
 
     public AccessCard getCard() {
@@ -102,5 +94,27 @@ public class Employee {
 
     public void setId(int id) {
         Id = id;
+    }
+
+    public List<PayStub> getPayStub() {
+        return payStub;
+    }
+
+    public void setPayStub(List<PayStub> payStub) {
+        this.payStub = payStub;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "Id=" + Id +
+                ", card=" + card +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", dob=" + dob +
+                ", ssn='" + ssn + '\'' +
+                ", type=" + type +
+//                ", payStub=" + payStub +
+                '}';
     }
 }

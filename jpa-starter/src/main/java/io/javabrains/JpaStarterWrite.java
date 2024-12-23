@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.Date;
+import java.util.List;
 
 public class JpaStarterWrite {
     public static void main(String[] args) {
@@ -55,7 +56,7 @@ public class JpaStarterWrite {
 
         payStub1.setEmployee(employee);
         payStub2.setEmployee(employee);
-
+        employee.setPayStub(List.of(payStub1, payStub2));
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

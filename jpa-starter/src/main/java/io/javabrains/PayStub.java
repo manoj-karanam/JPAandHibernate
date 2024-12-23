@@ -59,4 +59,15 @@ public class PayStub {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
+
+    @Override
+    public String toString() {
+        return "PayStub{" +
+                "id=" + id +
+                ", payPeriodStart=" + payPeriodStart +
+                ", payPeriodEnd=" + payPeriodEnd +
+                ", salary=" + salary +
+                ", employee=" + employee +
+                '}';
+    }
 }
