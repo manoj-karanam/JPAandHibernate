@@ -58,6 +58,21 @@ public class JpaStarterWrite {
         payStub2.setEmployee(employee);
         employee.setPayStub(List.of(payStub1, payStub2));
 
+        EmailGroup emailGroup = new EmailGroup();
+        emailGroup.setName("Company Watercooler discussions");
+        emailGroup.addMembers(employee);
+        emailGroup.addMembers(employee2);
+        employee.addEmailSubscription(emailGroup);
+        employee2.addEmailSubscription(emailGroup);
+
+        EmailGroup emailGroup2 = new EmailGroup();
+        emailGroup2.setName("Engineering");
+        emailGroup2.addMembers(employee);
+        emailGroup2.addMembers(employee2);
+        employee.addEmailSubscription(emailGroup2);
+        employee2.addEmailSubscription(emailGroup2);
+
+
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -69,6 +84,8 @@ public class JpaStarterWrite {
         entityManager.persist(card2);
         entityManager.persist(payStub1);
         entityManager.persist(payStub2);
+        entityManager.persist(emailGroup);
+        entityManager.persist(emailGroup2);
         transaction.commit();
         entityManager.close();
         entityManagerFactory.close();

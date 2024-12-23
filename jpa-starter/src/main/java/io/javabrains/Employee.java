@@ -2,6 +2,7 @@ package io.javabrains;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +36,9 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     private List<PayStub> payStub;
+
+    @ManyToMany
+    private  List<EmailGroup> emailGroups = new ArrayList<>();
 
     public EmployeeType getType() {
         return type;
@@ -116,5 +120,17 @@ public class Employee {
                 ", type=" + type +
 //                ", payStub=" + payStub +
                 '}';
+    }
+
+    public List<EmailGroup> getEmailGroups() {
+        return emailGroups;
+    }
+
+    public void setEmailGroups(List<EmailGroup> emailGroups) {
+        this.emailGroups = emailGroups;
+    }
+
+    public void addEmailSubscription(EmailGroup group) {
+        this.emailGroups.add(group);
     }
 }
