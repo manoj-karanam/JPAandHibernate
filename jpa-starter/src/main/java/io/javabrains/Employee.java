@@ -34,7 +34,7 @@ public class Employee {
     @Transient
     private String debugString;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.REMOVE)
     private List<PayStub> payStub;
 
     @ManyToMany(fetch = FetchType.EAGER)
