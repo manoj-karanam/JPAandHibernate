@@ -70,7 +70,7 @@ public class JpaStarterWrite {
         emailGroup2.addMembers(employee);
         emailGroup2.addMembers(employee2);
         employee.addEmailSubscription(emailGroup2);
-        employee2.addEmailSubscription(emailGroup2);
+
 
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
