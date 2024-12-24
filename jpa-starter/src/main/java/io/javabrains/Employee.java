@@ -38,6 +38,9 @@ public class Employee {
     private List<PayStub> payStub;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "EMAIL_GROUP_SUBSCRIPTIONS",
+              joinColumns = @JoinColumn(name = "EMPLOYEE_ID"),
+                inverseJoinColumns = @JoinColumn(name = "SUBSCRIPTION_EMAIL_ID"))
     private  List<EmailGroup> emailGroups = new ArrayList<>();
 
     public EmployeeType getType() {
