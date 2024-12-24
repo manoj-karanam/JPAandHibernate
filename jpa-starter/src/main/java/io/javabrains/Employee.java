@@ -37,7 +37,7 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<PayStub> payStub;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private  List<EmailGroup> emailGroups = new ArrayList<>();
 
     public EmployeeType getType() {
