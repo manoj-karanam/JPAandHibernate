@@ -111,19 +111,19 @@ public class Employee {
         this.payStub = payStub;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Employee{" +
-//                "Id=" + Id +
-//                ", card=" + card +
-//                ", name='" + name + '\'' +
-//                ", age=" + age +
-//                ", dob=" + dob +
-//                ", ssn='" + ssn + '\'' +
-//                ", type=" + type +
-////                ", payStub=" + payStub +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "Id=" + Id +
+                ", card=" + card +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", dob=" + dob +
+                ", ssn='" + ssn + '\'' +
+                ", type=" + type +
+//                ", payStub=" + payStub +
+                '}';
+    }
 
     public List<EmailGroup> getEmailGroups() {
         return emailGroups;
