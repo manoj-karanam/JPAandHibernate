@@ -11,8 +11,8 @@ public class JpaJPQLExamples {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        TypedQuery<String> query = entityManager.createQuery("select e.name from Employee e ", String.class);
-        List<String> resultList = query.getResultList();
+        TypedQuery<Integer> query = entityManager.createQuery("select e.age from Employee e ", Integer.class);
+        List<Integer> resultList = query.getResultList();
         resultList.forEach(System.out::println);
 
         entityManager.close();
