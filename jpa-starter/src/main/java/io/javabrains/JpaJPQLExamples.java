@@ -11,9 +11,11 @@ public class JpaJPQLExamples {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myApp");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        TypedQuery<Object[]> query = entityManager.createQuery("select e.name, e.card.id from Employee e ", Object[].class);
-        List<Object[]> resultList = query.getResultList();
-        resultList.forEach(e -> System.out.println(e[0]+ " "+e[1]));
+        int minAge = 25;
+        TypedQuery<Employee> query = entityManager.createQuery("select e from Employee e where e.age>:minAge ", Employee.class);
+        query.setParameter("minAge",minAge);
+        List<Employee> resultList = query.getResultList();
+        resultList.forEach(System.out::println);
 
         entityManager.close();
         entityManagerFactory.close();
