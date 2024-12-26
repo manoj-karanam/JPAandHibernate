@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name="EMPLOYEE_DATA")
+@NamedQuery(query = "select e from Employee e where e.age>:age order by e.name ", name = "emp name asc")
 public class Employee {
 
     @Id
